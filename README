@@ -1,0 +1,31 @@
+Read "INSTALL" for information on getting this shell running.
+
+zsh is free software.  See the file COPYING for copying permission.
+
+	This shell was "developed" by me, Paul Falstad, a sophomore at Princeton
+University.  I borrowed _heavily_ from ksh, bash, tcsh, sh, and csh, as
+well as adding a few (IMHO) useful features.  zsh was at first intended
+to be a subset of csh for the Commodore Amiga, but the project sort of
+ballooned; now I want it to be a cross between ksh and tcsh.  It should
+be a powerful "command and programming language" that is well-designed
+and logical (like ksh), but it should also be built for humans (like
+tcsh), with all the neat features like spell checking, login/logout
+watching and termcap support that are probably too weird to make it into
+an AT&T product.  This version of the shell has fallen far short of that
+goal; I just wanted to release _something_, because this is obviously
+going to be an extremely long project.
+
+	This is version v1.0 of zsh.  I incorporated the GNU "readline"
+editor, written by Brian Fox, into the shell, just to make my life
+temporarily easier.  I made lots of changes to it, so if there are any
+bugs in the editor, they're probably my fault.  readline will not be a
+part of the next version of zsh.
+
+	If anyone has any questions, suggestions, comments, bugs, flames, or
+any other mail of any kind, send it to pfalstad@phoenix.princeton.edu.
+Thanks to Kartik Subbarao, Daniel Bernstein ("Yay.  So sell it."),
+Kennedy Lemke, Chet Ramey (for the bash man page, and for putting features
+in the man page that weren't in our version of bash), Brian Fox (for
+helping me put off a lot of work, and for writing bash), Richard M. Stallman
+(for gdb and gcc; not for emacs though ;-) ) and many others.
+

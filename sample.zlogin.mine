@@ -1,0 +1,21 @@
+#
+# my login file for zsh
+#
+cd
+ls -l /etc/motd
+stty dec new cr0
+eval $(tset -s -Q '?xterm')
+stty -tabs
+umask 022
+export MAIL=/usr/spool/mail/$USER
+MAILCHECK=60
+# biff y
+msgs -fp
+uptime
+/usr/games/fortune
+log
+echo Thought for the day: $(randline ~/pub/commands)
+from 2>/dev/null
+cat .todo
+cat '. '
+echo last login $(date) on $(hostname) >! .' '

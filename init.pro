@@ -1,0 +1,10 @@
+void main(int argc, char **argv);
+void loop(void);
+void setflags(void);
+void parseargs(char **argv);
+void setmoreflags(void);
+void setupvals(void);
+void initialize(void);
+void addreswords(void);
+void runscripts(void);
+void ainit(void);

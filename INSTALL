@@ -1,0 +1,17 @@
+I was not able to port zsh to many platforms because I don't have
+accounts on many platforms.  It shouldn't be too much trouble if you
+manage to decipher my code.  I have tested zsh on SunOS 4.1, SunOS 4.0.3,
+4.3BSD UNIX.
+
+You need to edit the files config.h, config.local.h, makefile, and
+readline/Makefile.  The comments should make clear what you have to do.
+Note that the files in the readline directory have been greatly
+modified, so you can't just copy over your changes from bash if you
+have it installed.
+
+Once you have done that, you might be able to do a make without any
+problem.  If you have trouble, and can't get zsh to work, send me mail,
+and I'll try to help.  If anyone manages to get zsh ported to some other
+platform, please mail me so I can tell other people about your changes
+and incorporate them into the next version.
+

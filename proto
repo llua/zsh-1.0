@@ -1,0 +1,16 @@
+#! /bin/sh
+#
+# proto - prototype generating script
+#
+# This file is part of zsh, the Z shell.
+#
+# zsh is free software etc etc.
+#
+for i
+do
+	rm $i.pro
+	grep -v '[{};:#]' $i.c | grep '^[A-Za-z]' |
+		grep -v '^[ 	]' |
+		grep -v static | sed 's/$/;/' >$i.pro
+done
+

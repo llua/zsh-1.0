@@ -1,0 +1,98 @@
+#
+# my rc file for zsh
+#
+PATH=~/scr:~/bin/$HOSTTYPE:/usr/princeton/bin:/usr/ucb:/usr/bin:/bin:\
+/u/maruchck/scr:/u/cs320/bin:/u/maruchck/bin:\
+/usr/princeton/bin/X11:/usr/etc:/etc
+CDPATH=~:~/src/cs320:~/src
+umask 022
+alias a alias
+a pd pushd
+a pop popd
+limit core 0
+a c cp
+a grep egrep
+a ps sps
+a j jobs
+a hide 'ARGV0=$(randline ~/pub/strings) '
+a rn hide /usr/princeton/bin/rn.4.1
+a v mv
+a t cat
+a where hostname'; echo >/dev/null'
+a l ls -AF
+a m make
+a mm hide less 
+a talk hide talk
+a h history
+a a.out ./a.out
+a more less
+a strings strings -
+a lock lock -p
+a nw 'l -ltr | tail'
+a -a 'M' \| less
+a -a 'GF' \| fgrep -f ~/.friends
+a -a 'sub' subbarao
+a -a 'mjm' maruchck
+a -a 'paswd' '<(ypcat passwd)'
+a -a 'cex' '/u/pup/centrex'
+a rable ls -AFltrd '*(R)'
+a nrable ls -AFltrd '*(^R)'
+a ';' vi
+a 0 vi
+a '<<' more
+mostglob egrep sed
+noglob find
+PROMPT='Z %h %M:%~ '
+FCEDIT=vi
+LESSTERM=$(echo $TERMCAP | sed s/:ti=[^:]*:te=[^:]*:/:ti=:te=:/)
+a less TERMCAP='"$LESSTERM"' /usr/princeton/bin/less
+zsh=~/src/zsh
+a k9 kill -9
+cx() { chmod +x $* }
+acx() { chmod 755 $* }
+mere() { nroff -man -Tman $1 | less -s }
+
+[ `tty` = /dev/console ] || {
+	PERIOD=40
+	periodic() {
+		echo checking news...  # check news every 40 minutes
+		rn -c
+	}
+}
+
+randline() {
+	integer z;
+	z=$(wc -l <$1)
+	sed -n $[RANDOM%z+1]p $1
+	unset z
+}
+
+eval "proto () { $(grep -v '^#' ~/scr/proto) }"
+
+snoop() {
+	(( $# )) || set `users`
+	fgrep -i -f </u/pup/st{udents,aff} <(
+		for i
+		do
+			ypmatch $i passwd
+		done | cut -d: -f5 | cut -d, -f1 |
+			awk '{ printf "%s,%s\n",$NF,substr($1,1,1) }') 
+}
+
+MAIL=/usr/spool/mail/pfalstad
+MAILCHECK=30
+HISTSIZE=600
+setopt notify globdots autolist correct dextract pushdtohome cdablevars
+unsetopt bgnice
+WATCH=$(echo $(<~/.friends) | tr ' ' :)
+WATCHFMT='%n %a %l from %m at %t.'
+LOGCHECK=0
+
+[ -t ] && {
+	(cd ; hostname >! .where)
+}
+
+export MANPATH=/usr/man:/usr/princeton/man:/u/cad/man
+
+setenv() { export $1=$2 }
+
